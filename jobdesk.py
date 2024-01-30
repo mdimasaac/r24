@@ -284,12 +284,13 @@ def jobdesk():
         elif panitia in ["Acara & Publikasi"]:
             tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
         tim = st.selectbox("Pilih tim:", tim_list)
-        if st.button("Submit", key="panitia"):
+        empty_space(3)
+        if st.button("Submit", key="panitia",use_container_width=True):
             new_row = [panitia,nama,kontak,tim]
             insert_to_gspread("panitia",new_row)
             df = fetch_from_gspread("panitia")
             
-    empty_space(5)
+    empty_space(1)
     if panitia == "Manajemen Konsumsi":
         manajemen_konsumsi()
     elif panitia == "Manajemen Ustadz":
@@ -308,7 +309,6 @@ def jobdesk():
         kerja_bakti()
 
     empty_space(5)
-    st.divider()
     df = fetch_from_gspread("panitia")
     if st.button("Refresh data"):
         df = fetch_from_gspread("panitia")
