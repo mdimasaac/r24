@@ -84,7 +84,7 @@ def cards(df,n):
     a,b = st.columns([1,1])
     with a:
         width = "310px"
-        height = "200px"
+        height = "100px"
         card(
         title=str(n),
         text="Ramadhan",
@@ -92,14 +92,16 @@ def cards(df,n):
         styles={"card": {"width":width,"height": height}}
         )
     with b:
+        empty_space(3)
         c = st.container(border = True)
         d = df[df["tanggal"] == n]
-        for i in range(len(d)):
-            c.write("nama: "+str(d.iloc[i,1]))
-            c.write("menu: "+str(d.iloc[i,2]))
-            c.write("porsi: "+str(d.iloc[i,3]))
-            c.write("jemput: "+str(d.iloc[i,6]))
-            c.write("___")
+        c.table(d)
+        # for i in range(len(d)):
+        #     c.write("nama: "+str(d.iloc[i,1]))
+        #     c.write("menu: "+str(d.iloc[i,2]))
+        #     c.write("porsi: "+str(d.iloc[i,3]))
+        #     c.write("jemput: "+str(d.iloc[i,6]))
+        #     c.write("___")
 
 
 def sumbangan_makanan(admin):
