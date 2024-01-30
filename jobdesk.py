@@ -277,32 +277,32 @@ def jobdesk():
         st.write('''#### *Zakat & Bendahara:*''')
         if len(bendahara_list) != 0:
             for i,j,k in zip(bendahara_list["nama"],bendahara_list["kontak"],bendahara_list["tim"]):
-                st.write(k+" | "+i+" | "+j)
+                st.write(k+" | "+i+" | "+str(j))
         st.divider()
         st.write('''#### *Piket Ikhwan:*''')
         if len(piket_ikhwan_list) != 0:
             for i,j,k in zip(piket_ikhwan_list["nama"],piket_ikhwan_list["kontak"],piket_ikhwan_list["tim"]):
-                st.write(k+" | "+i+" | "+j)
+                st.write(k+" | "+i+" | "+str(j))
         st.divider()
         st.write('''#### *Piket Akhwat:*''')
         if len(piket_akhwat_list) != 0:
             for i,j,k in zip(piket_akhwat_list["nama"],piket_akhwat_list["kontak"],piket_akhwat_list["tim"]):
-                st.write(k+" | "+i+" | "+j)
+                st.write(k+" | "+i+" | "+str(j))
         st.divider()
         st.write('''#### *Belanja Logistik:*''')
         if len(logistik_list) != 0:
             for i,j,k in zip(logistik_list["nama"],logistik_list["kontak"],logistik_list["tim"]):
-                st.write(k+" | "+i+" | "+j)
+                st.write(k+" | "+i+" | "+str(j))
         st.divider()
         st.write('''#### *Kerja Bakti:*''')
         if len(kerja_bakti_list) != 0:
             for i,j,k in zip(kerja_bakti_list["nama"],kerja_bakti_list["kontak"],kerja_bakti_list["tim"]):
-                st.write(k+" | "+i+" | "+j)
+                st.write(k+" | "+i+" | "+str(j))
         st.divider()
         st.write('''#### *Acara & Publikasi:*''')
         if len(publikasi_list) != 0:
             for i,j,k in zip(publikasi_list["nama"],publikasi_list["kontak"],publikasi_list["tim"]):
-                st.write(k+" | "+i+" | "+j)
+                st.write(k+" | "+i+" | "+str(j))
         st.divider()
     
     with t3:
@@ -322,7 +322,7 @@ def jobdesk():
                 tim_list = ["Tim A","Tim B"]
             tim = st.selectbox("Pilih tim:", tim_list)
             if st.button("Submit"):
-                new_row = [panitia,nama,str(kontak),tim]
+                new_row = [panitia,nama,kontak,tim]
                 insert_to_gspread("panitia",new_row)
                 df = fetch_from_gspread("panitia")
                 
