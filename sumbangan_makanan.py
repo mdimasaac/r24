@@ -81,14 +81,14 @@ def container(df,n):
         c.write("___")
 
 def cards(df,n):
-    a,b = st.columns([1.2,2])
+    a,b = st.columns([1,2])
     with a:
-        width = "200px"
+        width = "2180px"
         height = "125px"
         card(
         title=str(n),
         text="Ramadhan",
-        # image="https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif",
+        image="",
         styles={"card": {"width":width,"height": height}}
         )
     with b:
@@ -96,13 +96,6 @@ def cards(df,n):
         c = st.container(border = True)
         d = df[df["tanggal"] == n][["nama","menu","porsi","dijemput"]]
         c.table(d)
-        # for i in range(len(d)):
-        #     c.write("nama: "+str(d.iloc[i,1]))
-        #     c.write("menu: "+str(d.iloc[i,2]))
-        #     c.write("porsi: "+str(d.iloc[i,3]))
-        #     c.write("jemput: "+str(d.iloc[i,6]))
-        #     c.write("___")
-
 
 def sumbangan_makanan(admin):
     empty_space(2)
@@ -151,7 +144,8 @@ def sumbangan_makanan(admin):
             submit = st.button("Submit",key="sumbangan_makanan")
             
         if submit:
-            new_row = [int(tanggal.split(" ")[0]),nama,menu,porsi,kontak,alamat,dijemput]
+            dateval = tanggal.split("/")[1].strip().replace("Maret","03").replace("April","04").replace(" ","-")+"-2024"
+            new_row = [dateval,int(tanggal.split(" ")[0]),nama,menu,porsi,kontak,alamat,dijemput]
             insert_to_gspread("sumbangan_makanan",new_row)
             df = fetch_from_gspread("sumbangan_makanan")
             ss.divider = True
