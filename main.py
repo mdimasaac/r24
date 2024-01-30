@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit import session_state as ss
 import gspread
 import pandas as pd
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 from sumbangan_makanan import sumbangan_makanan
 from pendampingan_ust import pendampingan_ust
 from jobdesk import jobdesk
