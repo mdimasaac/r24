@@ -3,7 +3,7 @@ from streamlit import session_state as ss
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from streamlit_card import _streamlit_card as st_card
+from streamlit_card import card
 
 
 def empty_space(n):
@@ -83,7 +83,14 @@ def container(df,n):
 def cards(df,n):
     a,b = st.columns([1,3])
     with a:
-        st_card("Ramadhan", value = n)
+        width = "310px"
+        height = "200px"
+        card(
+        title=str(n),
+        text="Ramadhan",
+        # image="https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif",
+        styles={"card": {"width":width,"height": height}}
+        )
     with b:
         c = st.container(border = True)
         d = df[df["tanggal"] == n]
