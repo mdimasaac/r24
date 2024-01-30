@@ -81,7 +81,7 @@ def container(df,n):
         c.write("___")
 
 def cards(df,n):
-    a,b = st.columns([1,3])
+    a,b = st.columns([1,1])
     with a:
         width = "310px"
         height = "200px"
