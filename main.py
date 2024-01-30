@@ -5,7 +5,6 @@ import pandas as pd
 st.set_page_config(layout="wide")
 from sumbangan_makanan import sumbangan_makanan
 from pendampingan_ust import pendampingan_ust
-from panitia_ramadhan import panitia_ramadhan
 from jobdesk import jobdesk
 
 def write_title():
