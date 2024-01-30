@@ -94,7 +94,7 @@ def cards(df,n):
     with b:
         empty_space(3)
         c = st.container(border = True)
-        d = df[df["tanggal"] == n]["nama","menu","porsi","dijemput"]
+        d = df[df["tanggal"] == n][["nama","menu","porsi","dijemput"]]
         c.table(d)
         # for i in range(len(d)):
         #     c.write("nama: "+str(d.iloc[i,1]))
@@ -156,7 +156,7 @@ def sumbangan_makanan(admin):
             df = fetch_from_gspread("sumbangan_makanan")
             ss.divider = True
 
-    empty_space(5)    
+    empty_space(2)    
     if st.toggle("Fetch actual data",key="sumbangan_makanan_1"):
         df = fetch_from_gspread("sumbangan_makanan")
         ss.divider = True
