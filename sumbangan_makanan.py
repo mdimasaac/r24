@@ -81,9 +81,11 @@ def container(df,n):
         c.write("___")
 
 def cards(df,n):
+    d = df[df["tanggal"] == n][["date","nama","menu","porsi","dijemput"]]
+    d["date"] = pd.to_datetime(d["date"])
     a,b = st.columns([1,2])
     with a:
-        width = "2180px"
+        width = "180px"
         height = "125px"
         card(
         title=str(n),
@@ -94,8 +96,7 @@ def cards(df,n):
     with b:
         empty_space(5)
         c = st.container(border = True)
-        d = df[df["tanggal"] == n][["nama","menu","porsi","dijemput"]]
-        c.table(d)
+        c.table(d[["date","nama","menu","porsi","dijemput"]])
 
 def sumbangan_makanan(admin):
     empty_space(2)
@@ -144,7 +145,7 @@ def sumbangan_makanan(admin):
             submit = st.button("Submit",key="sumbangan_makanan")
             
         if submit:
-            dateval = tanggal.split("/")[1].strip().replace("Maret","03").replace("April","04").replace(" ","-")+"-2024"
+            dateval = tanggal.split("/")[1].strip().replace("Maret","03").replace("April","04").replace(" ","/")+"/2024"
             new_row = [dateval,int(tanggal.split(" ")[0]),nama,menu,porsi,kontak,alamat,dijemput]
             insert_to_gspread("sumbangan_makanan",new_row)
             df = fetch_from_gspread("sumbangan_makanan")
