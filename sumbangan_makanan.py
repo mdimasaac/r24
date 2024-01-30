@@ -83,7 +83,7 @@ def container(df,n):
 def cards(df,n):
     a,b = st.columns([1,1])
     with a:
-        width = "310px"
+        width = "320px"
         height = "130px"
         card(
         title=str(n),
@@ -92,7 +92,7 @@ def cards(df,n):
         styles={"card": {"width":width,"height": height}}
         )
     with b:
-        empty_space(3)
+        empty_space(5)
         c = st.container(border = True)
         d = df[df["tanggal"] == n][["nama","menu","porsi","dijemput"]]
         c.table(d)
