@@ -310,7 +310,9 @@ def jobdesk():
 
     empty_space(5)
     df = fetch_from_gspread("panitia")
-    st.write("## Struktur Kepanitiaan")
+    st.divider()
+    title = '<div style="text-align: center; font-size: 36px; font-style: italic;">Struktur Kepanitiaan</div>'
+    st.markdown(title,unsafe_allow_html=True)
     if st.button("Refresh data"):
         df = fetch_from_gspread("panitia")
     bendahara_list = df[df["panitia"] == "Zakat & Bendahara"].sort_values(by= "tim")
@@ -320,48 +322,48 @@ def jobdesk():
     kerja_bakti_list = df[df["panitia"] == "Kerja Bakti"].sort_values(by= "tim")
     publikasi_list = df[df["panitia"] == "Acara & Publikasi"].sort_values(by= "tim")
     konsumsi_list = df[df["panitia"] == "Manajemen Konsumsi"].sort_values(by= "tim")
-    st.divider()
+    empty_space(3)
     st.write('''#### *Ketua Ramadhan:*''')
     st.write("Arsyan Mohamad Virio Andreyana | +49 1523 7363067")
-    st.divider()
+    empty_space(3)
     st.write('''#### *Wakil Ketua:*''')
     wakil = ["Ilham Muhammad | +49 1792 851483","Kevin Pratama | +49 1523 8593490"]
     for i in wakil:
         st.write(i)
-    st.divider()
+    empty_space(3)
     st.write('''#### *Zakat & Bendahara:*''')
     if len(bendahara_list) != 0:
         for i,j,k in zip(bendahara_list["nama"],bendahara_list["kontak"],bendahara_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     st.write('''#### *Piket Ikhwan:*''')
     if len(piket_ikhwan_list) != 0:
         for i,j,k in zip(piket_ikhwan_list["nama"],piket_ikhwan_list["kontak"],piket_ikhwan_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     st.write('''#### *Piket Akhwat:*''')
     if len(piket_akhwat_list) != 0:
         for i,j,k in zip(piket_akhwat_list["nama"],piket_akhwat_list["kontak"],piket_akhwat_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     st.write('''#### *Manajemen Konsumsi:*''')
     if len(konsumsi_list) != 0:
         for i,j,k in zip(konsumsi_list["nama"],konsumsi_list["kontak"],konsumsi_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     st.write('''#### *Belanja Logistik:*''')
     if len(logistik_list) != 0:
         for i,j,k in zip(logistik_list["nama"],logistik_list["kontak"],logistik_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     st.write('''#### *Kerja Bakti:*''')
     if len(kerja_bakti_list) != 0:
         for i,j,k in zip(kerja_bakti_list["nama"],kerja_bakti_list["kontak"],kerja_bakti_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     st.write('''#### *Acara & Publikasi:*''')
     if len(publikasi_list) != 0:
         for i,j,k in zip(publikasi_list["nama"],publikasi_list["kontak"],publikasi_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
-    st.divider()
+    empty_space(3)
     
