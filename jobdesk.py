@@ -100,10 +100,10 @@ def piket_ikhwan():
     st.write("- Ikut hadir di acara Iftar di IWKZ dan membantu distribusi makanan")
     st.write("- Membersihkan tiker dan piring sisa makanan; menghimbau jamaah yang buka puasa supaya ikut membantu beres-beres")
     empty_space(3)
-    undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim C (3-5 orang):</div>'
+    undertitle = '<div style="text-align: left; font-size: 26px;font-style: bold;">🗹 Tim Lakik (5+ orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
     st.write("- Cuci piring setelah tarawih")
-    st.write("- Stay setelah tarawih, untuk belanja menu makan sahur keesokan harinya")
+    st.write("- Belanja RisA setelah tarawih untuk makanan sahur keesokan harinya")
 
 def piket_akhwat():
     empty_space(5)
@@ -187,13 +187,20 @@ def kerja_bakti():
     st.markdown(title,unsafe_allow_html=True)
     st.divider()
     empty_space(3)
-    undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (n orang):</div>'
+    undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim Besar (n orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
-    st.write("- coming soon")
-    empty_space(3)
-    undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (n orang):</div>'
-    st.markdown(undertitle,unsafe_allow_html=True)
-    st.write("- coming soon")
+    st.write("- Lap basah jendela masjid (sisi dalam) + Fensterbank")
+    st.write("- Staubsaugen seluruh interior masjid")
+    st.write("- Pel dan bersihkan tempat wudhu ikhwan & akhwat")
+    st.write("- Pel dan bersihkan toilet ikhwan & akhwat")
+    st.write("- Bersihkan Garderobe; buang barang yang tidak diperlukan")
+    st.write("- Rapikan lemari hitam ikhwan dekat tempat wudhu")
+    st.write("- Rapikan lemari tempat perlengkapan dekat dapur")
+    st.write("- Rapikan Quran terutama; susun berdasarkan tipe Quran & ukuran")
+    st.write("- Rapikan lemari kantin; atur susunan barang")
+    st.write("- Sortir barang di dapur; singkirkan bahan makanan yang tidak dipakai")
+    st.write("- Sortir barang ramadhan yang sudah dibelanjakan (piring plastik, gelas plastik, tisu dll)")
+    st.write("- dan lainnya")
 
 def jobdesk():
     title = '<div style="text-align: center; font-size: 40px; font-style: italic;">Panitia Ramadhan</div>'
@@ -322,12 +329,20 @@ def jobdesk():
         t3_1,t0,t3_2 = st.columns([1,.5,1])
         with t3_1:
             nama = st.text_input("Nama:")
-            kontak = st.text_input("Kontak (Whatsapp):", value = "+49")
+            kontak = str(st.text_input("Kontak (Whatsapp):", value = "+49"))
         with t3_2:
-            if panitia in ["Manajemen Konsumsi","Piket Ikhwan","Piket Akhwat","Belanja Logistik"]:
+            if panitia in ["Manajemen Konsumsi","Piket Akhwat","Belanja Logistik"]:
                 tim_list = ["Tim A","Tim B","Tim C"]
+            elif panitia in ["Piket Ikhwan"]:
+                tim_list = ["Tim A","Tim B","Tim Lakik"]
             elif panitia in ["Manajemen Ustadz"]:
                 tim_list = ["Tim A","Tim B"]
+            elif panitia in ["Zakat & Bendahara"]:
+                tim_list = ["Tim B"]
+            elif panitia in ["Kerja Bakti"]:
+                tim_list = ["Tim Besar"]
+            elif panitia in ["Acara & Publikasi"]:
+                tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
             tim = st.selectbox("Pilih tim:", tim_list)
             if st.button("Submit"):
                 new_row = [panitia,nama,kontak,tim]

@@ -28,7 +28,8 @@ options = ["Login Page","Jobdesk Panitia","Sumbangan Kurma",
            "Sumbangan Makanan","Piket Ikhwan","Piket Akhwat",
            "Jemput Makanan","Imam Tarawih","Pendampingan Ustadz"]
 
-choice = st.sidebar.selectbox("Menu",options, key = '1')
+# choice = st.sidebar.selectbox("Menu",options, key = '1')
+choice = st.tabs(options)
 if (choice == "Login Page"):
     password = ""
     
