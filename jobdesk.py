@@ -322,7 +322,7 @@ def jobdesk():
                 tim_list = ["Tim A","Tim B"]
             tim = st.selectbox("Pilih tim:", tim_list)
             if st.button("Submit"):
-                new_row = [panitia,nama,kontak,tim]
+                new_row = [panitia,nama,str(kontak),tim]
                 insert_to_gspread("panitia",new_row)
                 df = fetch_from_gspread("panitia")
                 
