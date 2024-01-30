@@ -3,6 +3,7 @@ from streamlit import session_state as ss
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from streamlit_card import _streamlit_card as st_card
 
 
 def empty_space(n):
@@ -79,6 +80,21 @@ def container(df,n):
         c.write("jemput: "+str(d.iloc[i,6]))
         c.write("___")
 
+def cards(df,n):
+    a,b = st.columns([1,3])
+    with a:
+        st_card("Ramadhan", value = n)
+    with b:
+        c = st.container(border = True)
+        d = df[df["tanggal"] == n]
+        for i in range(len(d)):
+            c.write("nama: "+str(d.iloc[i,1]))
+            c.write("menu: "+str(d.iloc[i,2]))
+            c.write("porsi: "+str(d.iloc[i,3]))
+            c.write("jemput: "+str(d.iloc[i,6]))
+            c.write("___")
+
+
 def sumbangan_makanan(admin):
     empty_space(2)
     title = '<div style="text-align: center; font-size: 30px; font-style: italic;">Sumbangan Makanan Buka Puasa</div>'
@@ -142,7 +158,8 @@ def sumbangan_makanan(admin):
 
     for n in range(31):
         try:
-            container(df,n)
+            # container(df,n)
+            cards(df,n)
         except:
             pass
 
