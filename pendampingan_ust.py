@@ -125,7 +125,7 @@ def pendampingan_ust(admin):
         ss.divider = True
 
     empty_space(20)    
-    if st.toggle("Fetch actual data"):
+    if st.toggle("Fetch actual data",key="pendampingan_ust_1"):
         df = fetch_from_gspread("pendampingan_ust")
         ss.divider = True
     else:

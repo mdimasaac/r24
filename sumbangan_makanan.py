@@ -131,7 +131,7 @@ def sumbangan_makanan(admin):
             ss.divider = True
 
     empty_space(10)    
-    if st.toggle("Fetch actual data"):
+    if st.toggle("Fetch actual data",key="sumbangan_makanan_1"):
         df = fetch_from_gspread("sumbangan_makanan")
         ss.divider = True
     else:
