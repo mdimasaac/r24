@@ -80,6 +80,7 @@ def container(df,n):
         c.write("___")
 
 def sumbangan_makanan(admin):
+    empty_space(2)
     title = '<div style="text-align: center; font-size: 30px; font-style: italic;">Sumbangan Makanan Buka Puasa</div>'
     st.markdown(title,unsafe_allow_html=True)
     empty_space(5)

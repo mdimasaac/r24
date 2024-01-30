@@ -203,13 +203,13 @@ def kerja_bakti():
     st.write("- dan lainnya")
 
 def jobdesk():
+    empty_space(2)
     title = '<div style="text-align: center; font-size: 40px; font-style: italic;">Panitia Ramadhan</div>'
     st.markdown(title,unsafe_allow_html=True)
-    st.divider()
-    empty_space(3)
+    
     c1,c2 = st.columns(2)
-    width = "320px"
-    height = "120px"
+    width = "300px"
+    height = "100px"
     with c1:
         card(
         title="Manajemen Konsumsi",
@@ -284,7 +284,7 @@ def jobdesk():
         elif panitia in ["Acara & Publikasi"]:
             tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
         tim = st.selectbox("Pilih tim:", tim_list)
-        empty_space(3)
+        empty_space(1)
         if st.button("Submit", key="panitia",use_container_width=True):
             new_row = [panitia,nama,kontak,tim]
             insert_to_gspread("panitia",new_row)
