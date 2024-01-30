@@ -84,7 +84,7 @@ def cards(df,n):
     a,b = st.columns([1,1])
     with a:
         width = "310px"
-        height = "100px"
+        height = "130px"
         card(
         title=str(n),
         text="Ramadhan",
@@ -94,7 +94,7 @@ def cards(df,n):
     with b:
         empty_space(3)
         c = st.container(border = True)
-        d = df[df["tanggal"] == n]
+        d = df[df["tanggal"] == n]["nama","menu","porsi","dijemput"]
         c.table(d)
         # for i in range(len(d)):
         #     c.write("nama: "+str(d.iloc[i,1]))
