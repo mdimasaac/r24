@@ -207,7 +207,7 @@ def jobdesk():
     st.markdown(title,unsafe_allow_html=True)
     st.divider()
     empty_space(3)
-    c1,c2,c3,c4 = st.columns(4)
+    c1,c2 = st.columns(2)
     width = "300px"
     height = "160px"
     with c1:
@@ -223,6 +223,18 @@ def jobdesk():
         image="https://i.makeagif.com/media/10-28-2017/jxtpGP.gif",
         styles={"card": {"width":width,"height": height}}
         )
+        card(
+        title="Zakat & Bendahara",
+        text="",
+        image="https://i.pinimg.com/originals/53/b8/fd/53b8fd488b6fd22304640355fb6dfff4.gif",
+        styles={"card": {"width":width,"height": height}}
+        )
+        card(
+        title="Acara & Publikasi",
+        text="",
+        image="https://boolatplay.com/picture/1640765779.gif",
+        styles={"card": {"width":width,"height": height}}
+        )
     with c2:
         card(
         title="Manajemen Ustadz",
@@ -236,20 +248,6 @@ def jobdesk():
         image="https://img.huffingtonpost.com/asset/5e444ca9210000f600e94ec1.gif?ops=scalefit_720_noupscale",
         styles={"card": {"width":width,"height": height}}
         )
-    with c3:
-        card(
-        title="Zakat & Bendahara",
-        text="",
-        image="https://i.pinimg.com/originals/53/b8/fd/53b8fd488b6fd22304640355fb6dfff4.gif",
-        styles={"card": {"width":width,"height": height}}
-        )
-        card(
-        title="Acara & Publikasi",
-        text="",
-        image="https://boolatplay.com/picture/1640765779.gif",
-        styles={"card": {"width":width,"height": height}}
-        )
-    with c4:
         card(
         title="Belanja Logistik",
         text="",
