@@ -208,8 +208,8 @@ def jobdesk():
     st.divider()
     empty_space(3)
     c1,c2 = st.columns(2)
-    width = "300px"
-    height = "160px"
+    width = "320px"
+    height = "120px"
     with c1:
         card(
         title="Manajemen Konsumsi",
@@ -261,106 +261,106 @@ def jobdesk():
         styles={"card": {"width":width,"height": height}}
         )
 
-    t1,t0,t3 = st.columns([2,1,2])
-    with t1:
-        df = fetch_from_gspread("panitia")
-        if st.button("Refresh data"):
+    tim_list = []
+    values = ["Manajemen Konsumsi","Manajemen Ustadz","Piket Ikhwan",
+                "Piket Akhwat","Belanja Logistik","Kerja Bakti",
+                "Acara & Publikasi","Zakat & Bendahara"]
+    panitia = st.selectbox("Detail Kepanitiaan",values,placeholder="Pilih Tim Panitia:")
+    t3_1,t0,t3_2 = st.columns([1,.5,1])
+    with t3_1:
+        nama = st.text_input("Nama:")
+        kontak = str(st.text_input("Kontak (Whatsapp):", value = "+49"))
+    with t3_2:
+        if panitia in ["Manajemen Konsumsi","Piket Akhwat","Belanja Logistik"]:
+            tim_list = ["Tim A","Tim B","Tim C"]
+        elif panitia in ["Piket Ikhwan"]:
+            tim_list = ["Tim A","Tim B","Tim Lakik"]
+        elif panitia in ["Manajemen Ustadz"]:
+            tim_list = ["Tim A","Tim B"]
+        elif panitia in ["Zakat & Bendahara"]:
+            tim_list = ["Tim B"]
+        elif panitia in ["Kerja Bakti"]:
+            tim_list = ["Tim Besar"]
+        elif panitia in ["Acara & Publikasi"]:
+            tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
+        tim = st.selectbox("Pilih tim:", tim_list)
+        if st.button("Submit", key="panitia"):
+            new_row = [panitia,nama,kontak,tim]
+            insert_to_gspread("panitia",new_row)
             df = fetch_from_gspread("panitia")
-        bendahara_list = df[df["panitia"] == "Zakat & Bendahara"].sort_values(by= "tim")
-        piket_ikhwan_list = df[df["panitia"] == "Piket Ikhwan"].sort_values(by= "tim")
-        piket_akhwat_list = df[df["panitia"] == "Piket Akhwat"].sort_values(by= "tim")
-        logistik_list = df[df["tim"] == "Belanja Logistik"].sort_values(by= "tim")
-        kerja_bakti_list = df[df["panitia"] == "Kerja Bakti"].sort_values(by= "tim")
-        publikasi_list = df[df["panitia"] == "Acara & Publikasi"].sort_values(by= "tim")
-        konsumsi_list = df[df["panitia"] == "Manajemen Konsumsi"].sort_values(by= "tim")
-        st.divider()
-        st.write('''#### *Ketua Ramadhan:*''')
-        st.write("Arsyan Mohamad Virio Andreyana | +49 1523 7363067")
-        st.divider()
-        st.write('''#### *Wakil Ketua:*''')
-        wakil = ["Ilham Muhammad | +49 1792 851483","Kevin Pratama | +49 1523 8593490"]
-        for i in wakil:
-            st.write(i)
-        st.divider()
-        st.write('''#### *Zakat & Bendahara:*''')
-        if len(bendahara_list) != 0:
-            for i,j,k in zip(bendahara_list["nama"],bendahara_list["kontak"],bendahara_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
-        st.write('''#### *Piket Ikhwan:*''')
-        if len(piket_ikhwan_list) != 0:
-            for i,j,k in zip(piket_ikhwan_list["nama"],piket_ikhwan_list["kontak"],piket_ikhwan_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
-        st.write('''#### *Piket Akhwat:*''')
-        if len(piket_akhwat_list) != 0:
-            for i,j,k in zip(piket_akhwat_list["nama"],piket_akhwat_list["kontak"],piket_akhwat_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
-        st.write('''#### *Manajemen Konsumsi:*''')
-        if len(konsumsi_list) != 0:
-            for i,j,k in zip(konsumsi_list["nama"],konsumsi_list["kontak"],konsumsi_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
-        st.write('''#### *Belanja Logistik:*''')
-        if len(logistik_list) != 0:
-            for i,j,k in zip(logistik_list["nama"],logistik_list["kontak"],logistik_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
-        st.write('''#### *Kerja Bakti:*''')
-        if len(kerja_bakti_list) != 0:
-            for i,j,k in zip(kerja_bakti_list["nama"],kerja_bakti_list["kontak"],kerja_bakti_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
-        st.write('''#### *Acara & Publikasi:*''')
-        if len(publikasi_list) != 0:
-            for i,j,k in zip(publikasi_list["nama"],publikasi_list["kontak"],publikasi_list["tim"]):
-                st.write(k+" | "+i+" | "+str(j))
-        st.divider()
+            
+    empty_space(5)
+    if panitia == "Manajemen Konsumsi":
+        manajemen_konsumsi()
+    elif panitia == "Manajemen Ustadz":
+        manajemen_ustadz()
+    elif panitia == "Piket Ikhwan":
+        piket_ikhwan()
+    elif panitia == "Piket Akhwat":
+        piket_akhwat()
+    elif panitia == "Belanja Logistik":
+        belanja_logistik()
+    elif panitia == "Zakat & Bendahara":
+        zakat_dan_bendahara()
+    elif panitia == "Acara & Publikasi":
+        acara_dan_publikasi()
+    elif panitia == "Kerja Bakti":
+        kerja_bakti()
+
+    empty_space(5)
+    st.divider()
+    df = fetch_from_gspread("panitia")
+    if st.button("Refresh data"):
+        df = fetch_from_gspread("panitia")
+    bendahara_list = df[df["panitia"] == "Zakat & Bendahara"].sort_values(by= "tim")
+    piket_ikhwan_list = df[df["panitia"] == "Piket Ikhwan"].sort_values(by= "tim")
+    piket_akhwat_list = df[df["panitia"] == "Piket Akhwat"].sort_values(by= "tim")
+    logistik_list = df[df["tim"] == "Belanja Logistik"].sort_values(by= "tim")
+    kerja_bakti_list = df[df["panitia"] == "Kerja Bakti"].sort_values(by= "tim")
+    publikasi_list = df[df["panitia"] == "Acara & Publikasi"].sort_values(by= "tim")
+    konsumsi_list = df[df["panitia"] == "Manajemen Konsumsi"].sort_values(by= "tim")
+    st.divider()
+    st.write('''#### *Ketua Ramadhan:*''')
+    st.write("Arsyan Mohamad Virio Andreyana | +49 1523 7363067")
+    st.divider()
+    st.write('''#### *Wakil Ketua:*''')
+    wakil = ["Ilham Muhammad | +49 1792 851483","Kevin Pratama | +49 1523 8593490"]
+    for i in wakil:
+        st.write(i)
+    st.divider()
+    st.write('''#### *Zakat & Bendahara:*''')
+    if len(bendahara_list) != 0:
+        for i,j,k in zip(bendahara_list["nama"],bendahara_list["kontak"],bendahara_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
+    st.write('''#### *Piket Ikhwan:*''')
+    if len(piket_ikhwan_list) != 0:
+        for i,j,k in zip(piket_ikhwan_list["nama"],piket_ikhwan_list["kontak"],piket_ikhwan_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
+    st.write('''#### *Piket Akhwat:*''')
+    if len(piket_akhwat_list) != 0:
+        for i,j,k in zip(piket_akhwat_list["nama"],piket_akhwat_list["kontak"],piket_akhwat_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
+    st.write('''#### *Manajemen Konsumsi:*''')
+    if len(konsumsi_list) != 0:
+        for i,j,k in zip(konsumsi_list["nama"],konsumsi_list["kontak"],konsumsi_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
+    st.write('''#### *Belanja Logistik:*''')
+    if len(logistik_list) != 0:
+        for i,j,k in zip(logistik_list["nama"],logistik_list["kontak"],logistik_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
+    st.write('''#### *Kerja Bakti:*''')
+    if len(kerja_bakti_list) != 0:
+        for i,j,k in zip(kerja_bakti_list["nama"],kerja_bakti_list["kontak"],kerja_bakti_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
+    st.write('''#### *Acara & Publikasi:*''')
+    if len(publikasi_list) != 0:
+        for i,j,k in zip(publikasi_list["nama"],publikasi_list["kontak"],publikasi_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    st.divider()
     
-    with t3:
-        tim_list = []
-        values = ["Manajemen Konsumsi","Manajemen Ustadz","Piket Ikhwan",
-                  "Piket Akhwat","Belanja Logistik","Kerja Bakti",
-                  "Acara & Publikasi","Zakat & Bendahara"]
-        panitia = st.selectbox("Detail Kepanitiaan",values,placeholder="Pilih Tim Panitia:")
-        t3_1,t0,t3_2 = st.columns([1,.5,1])
-        with t3_1:
-            nama = st.text_input("Nama:")
-            kontak = str(st.text_input("Kontak (Whatsapp):", value = "+49"))
-        with t3_2:
-            if panitia in ["Manajemen Konsumsi","Piket Akhwat","Belanja Logistik"]:
-                tim_list = ["Tim A","Tim B","Tim C"]
-            elif panitia in ["Piket Ikhwan"]:
-                tim_list = ["Tim A","Tim B","Tim Lakik"]
-            elif panitia in ["Manajemen Ustadz"]:
-                tim_list = ["Tim A","Tim B"]
-            elif panitia in ["Zakat & Bendahara"]:
-                tim_list = ["Tim B"]
-            elif panitia in ["Kerja Bakti"]:
-                tim_list = ["Tim Besar"]
-            elif panitia in ["Acara & Publikasi"]:
-                tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
-            tim = st.selectbox("Pilih tim:", tim_list)
-            if st.button("Submit", key="panitia"):
-                new_row = [panitia,nama,kontak,tim]
-                insert_to_gspread("panitia",new_row)
-                df = fetch_from_gspread("panitia")
-                
-        empty_space(5)
-        if panitia == "Manajemen Konsumsi":
-            manajemen_konsumsi()
-        elif panitia == "Manajemen Ustadz":
-            manajemen_ustadz()
-        elif panitia == "Piket Ikhwan":
-            piket_ikhwan()
-        elif panitia == "Piket Akhwat":
-            piket_akhwat()
-        elif panitia == "Belanja Logistik":
-            belanja_logistik()
-        elif panitia == "Zakat & Bendahara":
-            zakat_dan_bendahara()
-        elif panitia == "Acara & Publikasi":
-            acara_dan_publikasi()
-        elif panitia == "Kerja Bakti":
-            kerja_bakti()
