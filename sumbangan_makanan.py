@@ -84,7 +84,7 @@ def sumbangan_makanan(admin):
     title = '<div style="text-align: center; font-size: 30px; font-style: italic;">Sumbangan Makanan Buka Puasa</div>'
     st.markdown(title,unsafe_allow_html=True)
     empty_space(5)
-    t0,title1,title2,t0 = st.columns([1.7,1.7,1.7,1])
+    title1,t0,title2 = st.columns([1,.2,1])
     with title1:
         st.subheader("Login sebagai admin:")
         st.write("- bisa lihat kalender dan isinya")
@@ -131,7 +131,7 @@ def sumbangan_makanan(admin):
             df = fetch_from_gspread("sumbangan_makanan")
             ss.divider = True
 
-    empty_space(10)    
+    empty_space(5)    
     if st.toggle("Fetch actual data",key="sumbangan_makanan_1"):
         df = fetch_from_gspread("sumbangan_makanan")
         ss.divider = True
@@ -140,68 +140,76 @@ def sumbangan_makanan(admin):
     empty_space(5)
     hari()
 
-    # pekan 1
-    a1,a2,a3,a4,a5,a6,a7 = st.columns(7)
-    cols_1_7 = [a1,a2,a3,a4,a5,a6,a7]
-    for i,n in zip(cols_1_7,range(1,8,1)):
-        with i:
-            try:
-                container(df,n)
-            except:
-                pass
-    if ss.divider:
-        st.divider()
+    for n in range(31):
+        try:
+            container(df,n)
+        except:
+            pass
 
-    # pekan 2
-    a8,a9,a10,a11,a12,a13,a14 = st.columns(7)
-    cols_8_14 = [a8,a9,a10,a11,a12,a13,a14]
-    for i,n in zip(cols_8_14,range(8,15,1)):
-        with i:
-            try:
-                container(df,n)
-            except:
-                pass
-    if ss.divider:
-        st.divider()
-
-    # pekan 3
-    a15,a16,a17,a18,a19,a20,a21 = st.columns(7)
-    cols_15_21 = [a15,a16,a17,a18,a19,a20,a21]
-    for i,n in zip(cols_15_21,range(15,22,1)):
-        with i:
-            try:
-                container(df,n)
-            except:
-                pass
-    if ss.divider:
-        st.divider()
-
-    # pekan 4
-    a22,a23,a24,a25,a26,a27,a28 = st.columns(7)
-    cols_22_28 = [a22,a23,a24,a25,a26,a27,a28]
-    for i,n in zip(cols_22_28,range(22,29,1)):
-        with i:
-            try:
-                container(df,n)
-            except:
-                pass
-    if ss.divider:
-        st.divider()
-
-    # pekan 5
-    a29,a30,a31,e4,e5,e6,e7 = st.columns(7)
-    cols_29_31 = [a29,a30,a31]
-    for i,n in zip(cols_29_31,range(29,32,1)):
-        with i:
-            try:
-                container(df,n)
-            except:
-                pass
-    if ss.divider:
-        st.divider()
-    
-    empty_space(20)
     if admin:
         if st.toggle("Show full data"):
             df_show = fetch_from_gspread("sumbangan_makanan").iloc[1:]
             st.table(df_show)
+
+    # # pekan 1
+    # a1,a2,a3,a4,a5,a6,a7 = st.columns(7)
+    # cols_1_7 = [a1,a2,a3,a4,a5,a6,a7]
+    # for i,n in zip(cols_1_7,range(1,8,1)):
+    #     with i:
+    #         try:
+    #             container(df,n)
+    #         except:
+    #             pass
+    # if ss.divider:
+    #     st.divider()
+
+    # # pekan 2
+    # a8,a9,a10,a11,a12,a13,a14 = st.columns(7)
+    # cols_8_14 = [a8,a9,a10,a11,a12,a13,a14]
+    # for i,n in zip(cols_8_14,range(8,15,1)):
+    #     with i:
+    #         try:
+    #             container(df,n)
+    #         except:
+    #             pass
+    # if ss.divider:
+    #     st.divider()
+
+    # # pekan 3
+    # a15,a16,a17,a18,a19,a20,a21 = st.columns(7)
+    # cols_15_21 = [a15,a16,a17,a18,a19,a20,a21]
+    # for i,n in zip(cols_15_21,range(15,22,1)):
+    #     with i:
+    #         try:
+    #             container(df,n)
+    #         except:
+    #             pass
+    # if ss.divider:
+    #     st.divider()
+
+    # # pekan 4
+    # a22,a23,a24,a25,a26,a27,a28 = st.columns(7)
+    # cols_22_28 = [a22,a23,a24,a25,a26,a27,a28]
+    # for i,n in zip(cols_22_28,range(22,29,1)):
+    #     with i:
+    #         try:
+    #             container(df,n)
+    #         except:
+    #             pass
+    # if ss.divider:
+    #     st.divider()
+
+    # # pekan 5
+    # a29,a30,a31,e4,e5,e6,e7 = st.columns(7)
+    # cols_29_31 = [a29,a30,a31]
+    # for i,n in zip(cols_29_31,range(29,32,1)):
+    #     with i:
+    #         try:
+    #             container(df,n)
+    #         except:
+    #             pass
+    # if ss.divider:
+    #     st.divider()
+    
+    
+    

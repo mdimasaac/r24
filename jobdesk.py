@@ -313,6 +313,7 @@ def jobdesk():
     st.divider()
     title = '<div style="text-align: center; font-size: 36px; font-style: italic;">Struktur Kepanitiaan</div>'
     st.markdown(title,unsafe_allow_html=True)
+    empty_space(3)
     if st.button("Refresh data"):
         df = fetch_from_gspread("panitia")
     bendahara_list = df[df["panitia"] == "Zakat & Bendahara"].sort_values(by= "tim")
@@ -322,7 +323,7 @@ def jobdesk():
     kerja_bakti_list = df[df["panitia"] == "Kerja Bakti"].sort_values(by= "tim")
     publikasi_list = df[df["panitia"] == "Acara & Publikasi"].sort_values(by= "tim")
     konsumsi_list = df[df["panitia"] == "Manajemen Konsumsi"].sort_values(by= "tim")
-    empty_space(3)
+    
     st.write('''#### *Ketua Ramadhan:*''')
     st.write("Arsyan Mohamad Virio Andreyana | +49 1523 7363067")
     empty_space(3)
