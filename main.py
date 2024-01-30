@@ -29,10 +29,10 @@ options = ["Login Page","Jobdesk Panitia","Sumbangan Kurma",
            "Jemput Makanan","Imam Tarawih","Pendampingan Ustadz"]
 
 # choice = st.sidebar.selectbox("Menu",options, key = '1')
-choice = st.tabs(options)
-if (choice == "Login Page"):
+t1,t2,t3,t4,t5,t6,t7,t8,t9 = st.tabs(options)
+# if (choice == "Login Page"):
+with t1:
     password = ""
-    
     user = st.selectbox("Select User",["Jamaah","Admin"])
     if user == "Jamaah":
         ss.admin = False
@@ -46,11 +46,30 @@ if (choice == "Login Page"):
                 st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di sebelah kiri untuk login sebagai Jamaah.")
                 ss.admin = False
 
-elif (choice == "Sumbangan Makanan"):
+
+with t2:
+# elif (choice == "Jobdesk Panitia"):
+    jobdesk()
+
+with t3:
+    st.write("Page Sumbangan Kurma - coming soon")
+
+with t4:
+# elif (choice == "Sumbangan Makanan"):
     sumbangan_makanan(ss.admin)
 
-elif (choice == "Pendampingan Ustadz"):
-    pendampingan_ust(ss.admin)
+with t5:
+    st.write("Page Piket Ikhwan - coming soon")
 
-elif (choice == "Jobdesk Panitia"):
-    jobdesk()
+with t6:
+    st.write("Page Piket Akhwat - coming soon")
+
+with t7:
+    st.write("Page Penjemputan Makanan - coming soon")
+
+with t8:
+    st.write("Page Imam Tarawih - coming soon")
+
+with t9:
+#elif (choice == "Pendampingan Ustadz"):
+    pendampingan_ust(ss.admin)
