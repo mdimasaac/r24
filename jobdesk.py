@@ -259,6 +259,8 @@ def jobdesk():
     t1,t0,t3 = st.columns([2,1,2])
     with t1:
         df = fetch_from_gspread("panitia")
+        if st.button("Refresh data"):
+            df = fetch_from_gspread("panitia")
         bendahara_list = df[df["panitia"] == "Zakat & Bendahara"].sort_values(by= "tim")
         piket_ikhwan_list = df[df["panitia"] == "Piket Ikhwan"].sort_values(by= "tim")
         piket_akhwat_list = df[df["panitia"] == "Piket Akhwat"].sort_values(by= "tim")
