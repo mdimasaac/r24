@@ -116,7 +116,7 @@ def pendampingan_ust(admin):
     with o3:
         tanggal = st.selectbox("Available tanggal berapa?",list_tanggal)
         empty_space(7)
-        submit = st.button("Submit")
+        submit = st.button("Submit",key="pendampingan_ust")
         
     if submit:
         new_row = [int(tanggal.split(" ")[0]),nama,kontak]

@@ -344,7 +344,7 @@ def jobdesk():
             elif panitia in ["Acara & Publikasi"]:
                 tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
             tim = st.selectbox("Pilih tim:", tim_list)
-            if st.button("Submit"):
+            if st.button("Submit", key="panitia"):
                 new_row = [panitia,nama,kontak,tim]
                 insert_to_gspread("panitia",new_row)
                 df = fetch_from_gspread("panitia")

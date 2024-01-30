@@ -122,7 +122,7 @@ def sumbangan_makanan(admin):
         with o3:
             tanggal = st.selectbox("Mau masak untuk hari apa / tanggal berapa?",list_tanggal)
             empty_space(7)
-            submit = st.button("Submit")
+            submit = st.button("Submit",key="sumbangan_makanan")
             
         if submit:
             new_row = [int(tanggal.split(" ")[0]),nama,menu,porsi,kontak,alamat,dijemput]
