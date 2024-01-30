@@ -208,8 +208,8 @@ def jobdesk():
     st.markdown(title,unsafe_allow_html=True)
     
     c1,c2 = st.columns(2)
-    width = "300px"
-    height = "100px"
+    width = "310px"
+    height = "200px"
     with c1:
         card(
         title="Manajemen Konsumsi",
@@ -266,7 +266,7 @@ def jobdesk():
                 "Piket Akhwat","Belanja Logistik","Kerja Bakti",
                 "Acara & Publikasi","Zakat & Bendahara"]
     panitia = st.selectbox("Detail Kepanitiaan",values,placeholder="Pilih Tim Panitia:")
-    t3_1,t0,t3_2 = st.columns([1,.5,1])
+    t3_1,t0,t3_2 = st.columns([1,.2,1])
     with t3_1:
         nama = st.text_input("Nama:")
         kontak = str(st.text_input("Kontak (Whatsapp):", value = "+49"))
@@ -310,6 +310,7 @@ def jobdesk():
 
     empty_space(5)
     df = fetch_from_gspread("panitia")
+    st.write("## Struktur Kepanitiaan")
     if st.button("Refresh data"):
         df = fetch_from_gspread("panitia")
     bendahara_list = df[df["panitia"] == "Zakat & Bendahara"].sort_values(by= "tim")
