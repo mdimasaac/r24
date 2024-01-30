@@ -265,6 +265,7 @@ def jobdesk():
         logistik_list = df[df["tim"] == "Belanja Logistik"].sort_values(by= "tim")
         kerja_bakti_list = df[df["panitia"] == "Kerja Bakti"].sort_values(by= "tim")
         publikasi_list = df[df["panitia"] == "Acara & Publikasi"].sort_values(by= "tim")
+        konsumsi_list = df[df["panitia"] == "Manajemen Konsumsi"].sort_values(by= "tim")
         st.divider()
         st.write('''#### *Ketua Ramadhan:*''')
         st.write("Arsyan Mohamad Virio Andreyana | +49 1523 7363067")
@@ -287,6 +288,11 @@ def jobdesk():
         st.write('''#### *Piket Akhwat:*''')
         if len(piket_akhwat_list) != 0:
             for i,j,k in zip(piket_akhwat_list["nama"],piket_akhwat_list["kontak"],piket_akhwat_list["tim"]):
+                st.write(k+" | "+i+" | "+str(j))
+        st.divider()
+        st.write('''#### *Manajemen Konsumsi:*''')
+        if len(konsumsi_list) != 0:
+            for i,j,k in zip(konsumsi_list["nama"],konsumsi_list["kontak"],konsumsi_list["tim"]):
                 st.write(k+" | "+i+" | "+str(j))
         st.divider()
         st.write('''#### *Belanja Logistik:*''')
