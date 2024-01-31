@@ -45,7 +45,7 @@ with t1:
         if user == "Jamaah":
             ss.admin = False
         elif user == "Admin":
-            password_admin = c.text_input("Masukkan password", type="password", key = "Admin")
+            password_admin = c.text_input("Masukkan password (khusus Admin)", type="password", key = "Admin")
             if c.button("Submit password", key = "button_admin"):
                 if password_admin == "satesomay":
                     st.success("Berhasil login sebagai admin. Silakan pilih menu di atas untuk navigasi ke halaman lainnya.")
@@ -53,6 +53,7 @@ with t1:
                 else:
                     st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di atas untuk masuk sebagai Jamaah.")
                     ss.admin = False
+            c.write("(Jamaah tidak perlu mengisi password)")
 with t2:
     jobdesk()
 with t3:
