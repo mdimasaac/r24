@@ -47,10 +47,8 @@ def jadwal_shalat():
         for i,j in zip(range(1,7),d_jam.columns[1:7]):
             width = "160px"
             height = "125px"
-            big_text = str(d_jam.iloc[:,i])
+            big_text = str(d_jam.iloc[:,i].values())
             text = j.title()
-            st.write(big_text)
-            st.write(text)
             card(
             title = big_text,
             text=text,
