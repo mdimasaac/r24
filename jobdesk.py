@@ -51,7 +51,7 @@ def manajemen_konsumsi():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (2 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
-    st.write("####- Komunikasi dengan Ibu-Ibu, Bapak-Bapak, dan jamaah lainnya yang bersedia/berminat untuk mendonasikan menu makan untuk buka puasa")
+    st.caption("- Komunikasi dengan Ibu-Ibu, Bapak-Bapak, dan jamaah lainnya yang bersedia/berminat untuk mendonasikan menu makan untuk buka puasa")
     st.write("- Mencatat info detail donatur makanan ke app/google sheet")
     st.write("- Update status dengan ketua ramadhan")
     empty_space(3)
