@@ -86,7 +86,7 @@ def cards(df,n):
     d = df[df["tanggal"] == n][["date","nama","menu","porsi","dijemput"]]
     d["date"] = pd.to_datetime(d["date"])
     image = ""
-    if d["date"].date() == datetime.today().date():
+    if d["date"].values.date() == datetime.today().date():
         image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
     else:
         image = ""
