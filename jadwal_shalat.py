@@ -42,7 +42,9 @@ def fetch_from_gspread(sheet_name):
 
 def jadwal_shalat():
     d_jam = fetch_from_gspread("jadwal_shalat")
-    d_jam = d_jam[d_jam["tanggal"][0].date() == datetime.today().date()]
-    if len(d_jam) != 0:
-        subuh = d_jam["subuh"]
-        st.write(subuh)
+    # d_jam = d_jam[d_jam["tanggal"][0].date() == datetime.today().date()]
+    # if len(d_jam) != 0:
+    #     subuh = d_jam["subuh"]
+    #     st.write(subuh)
+    st.write(d_jam["tanggal"][0].date())
+    st.write(type(d_jam["tanggal"][0].date()))
