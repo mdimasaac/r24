@@ -49,10 +49,10 @@ def jadwal_shalat():
             height = "125px"
             big_text = str(d_jam.iloc[:,i][0])
             text = j.title()
-            st.write(big_text,text)
-            # card(
-            # title = big_text,
-            # text=text,
-            # image="",
-            # styles={"card": {"width":width,"height": height}}
-            # )
+            # st.write(big_text,text)
+            card(
+            title = big_text,
+            text=text,
+            image="",
+            styles={"card": {"width":width,"height": height}}
+            )
