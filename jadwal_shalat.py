@@ -44,7 +44,7 @@ def jadwal_shalat():
     d_jam = fetch_from_gspread("jadwal_shalat")
     d_jam = d_jam[d_jam["tanggal"].dt.date == datetime.today().date()]
     if len(d_jam) != 0:
-        st.subheader(str(d_jam["tanggal"].dt.date)[0])
+        st.subheader(str(d_jam["tanggal"].dt.date)[1])
         for i,j in zip(range(1,7),d_jam.columns[1:7]):
             value = str(d_jam.iloc[:,i][0])
             label = j.title()
