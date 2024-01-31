@@ -5,8 +5,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from streamlit_card import card
 from datetime import datetime
-
-
+from time import time
 
 def empty_space(n):
     i = 0
@@ -55,7 +54,11 @@ def connect_to_gspread(sheet_name):
 
 def fetch_from_gspread(sheet_name):
     ws = connect_to_gspread(sheet_name)
-    sheet = ws.get_all_records()
+    try:
+        sheet = ws.get_all_records()
+    except:
+        time.sleep(10)
+        sheet = ws.get_all_records()
     df = pd.DataFrame(sheet)
     df["tanggal"] = df["tanggal"].astype("int32")
     return df
@@ -180,7 +183,6 @@ def sumbangan_makanan(admin):
     # hari()
 
     for n in range(31):
-        df = fetch_from_gspread("sumbangan_makanan")
         cards(df,n)
         # try:
         #     # container(df,n)
