@@ -4,10 +4,6 @@ from streamlit import session_state as ss
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
-import locale
-locale.setlocale(locale.LC_TIME, 'id')
-
-
 
 def empty_space(n):
     i = 0
