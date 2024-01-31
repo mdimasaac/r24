@@ -77,11 +77,13 @@ def manajemen_ustadz():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (1 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Komunikasi dengan Ustadz terkait jadwal kajian selama Ramadhan & tema/judul kajian")
     st.caption("- Update status ustadz dengan tim imam tarawih (jika ust ingin iftar/tarawih di tempat lain)")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (2 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Atur/bagi jadwal pendampingan ustadz")
     st.caption("- Antar ustadz kalau beliau mau jalan-jalan, atau buka puasa di masjid lain")
 
@@ -93,18 +95,21 @@ def piket_ikhwan():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (2 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Komunikasi dengan contact person donatur makanan buka puasa")
     st.caption("- Koordinasi mengisi jadwal penjemputan makanan setiap harinya")
     st.caption("- Menjemput makanan buka puasa dari alamat donatur (jika butuh penjemputan)")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Hadir di acara buka puasa, datang sekitar 20 menit sebelum adzan maghrib untuk membagikan air & kurma")
     st.caption("- Ikut hadir di acara Iftar di IWKZ dan membantu distribusi makanan")
     st.caption("- Membersihkan tiker dan piring sisa makanan; menghimbau jamaah yang buka puasa supaya ikut membantu beres-beres")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 26px;font-style: bold;">🗹 Tim Lakik (5+ orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Cuci piring setelah tarawih")
     st.caption("- Belanja RisA setelah tarawih untuk makanan sahur keesokan harinya")
 
@@ -116,18 +121,21 @@ def piket_akhwat():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (3 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Komunikasi dengan donatur makanan buka puasa & tim penjemputan makanan, memastikan makanan mendarat di masjid sebelum maghrib")
     st.caption("- Hadir sekitar 1 jam (?) sebelum adzan maghrib untuk portioning")
     st.caption("- Menyiapkan air & kurma di bagian akhwat")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (2 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Persiapan tiker & distribusi makanan untuk makan besar")
     st.caption("- Merapihkan setelah makanan selesai & menghimbau jamaah untuk ikut bantu beres-beres")
     st.caption("- (Optional) membungkus sisa makanan untuk dibawa pulang jamaah, karena masjid tidak ada kulkas besar untuk menyimpan isi makanan")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim C (1-2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- staubsaugen setelah acara makan besar, atau")
     st.caption("- Suruh yang ikhwan buat staubsaugen, supaya akhwat pulangnya nggak kemaleman")
 
@@ -139,17 +147,20 @@ def belanja_logistik():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (1-2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Manage stok peralatan makan plastik & plastik bungkus: beli (online) jika dibutuhkan")
     st.caption("- Manage stok sabun cuci tangan, tisu toilet & tisu wudhu: beli (online?) jika dibutuhkan")
     st.caption("- Manage stok sabun cuci piring, spons, lap kering dst: beli (online) jika dibutuhkan")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Membantu tim manajemen konsumsi untuk membeli kurma (jika dibutuhkan)")
     st.caption("- Membantu tim kerja bakti untuk membeli peralatan bersih-bersih (jika dibutuhkan)")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim C (1-2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Support bagian transportasi (jika dibutuhkan)")
 
 def zakat_dan_bendahara():
@@ -158,13 +169,15 @@ def zakat_dan_bendahara():
     st.markdown(title,unsafe_allow_html=True)
     st.divider()
     empty_space(3)
-    undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (1 orang - taken):</div>'
+    undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (1 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Mengatur keuangan ramadhan")
     st.caption("- Mengatur perizinan memakai dana untuk keperluan ramadhan")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (4 orang - 2 Ikhwan 2 Akhwat):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Hadir offline di Masjid untuk penerimaan zakat fitrah dari jamaah (terutama 10 hari terakhir)")
     st.caption("- Mencatat pembayaran zakat fitrah dan menyimpan uang pembayaran zakat fitrah")
     st.caption("- Menghimbau/mengingatkan jamaah di hari-hari terakhir mengenai pembayaran zakat fitrah (offline dan online)")
@@ -178,10 +191,12 @@ def acara_dan_publikasi():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (n orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- coming soon")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (n orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- coming soon")
 
 def kerja_bakti():
@@ -192,6 +207,7 @@ def kerja_bakti():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim Besar (n orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Lap basah jendela masjid (sisi dalam) + Fensterbank")
     st.caption("- Staubsaugen seluruh interior masjid")
     st.caption("- Pel dan bersihkan tempat wudhu ikhwan & akhwat")
