@@ -51,18 +51,21 @@ def manajemen_konsumsi():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (2 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Komunikasi dengan Ibu-Ibu, Bapak-Bapak, dan jamaah lainnya yang bersedia/berminat untuk mendonasikan menu makan untuk buka puasa")
     st.caption("- Mencatat info detail donatur makanan ke app/google sheet")
     st.caption("- Update status dengan ketua ramadhan")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim B (2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Janjian dengan tim penjemput makanan: siapa yang jemput di hari apa, jemput di mana, kontak dengan donatur, dll")
     st.caption("- Memanage supply kurma dan air; memastikan masih ada cukup supply untuk buka puasa setiap harinya")
     st.caption("- Komunikasi dengan tim belanja & logistik jika harus beli kurma dadakan")
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim C (1-2 orang):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
+    st.write("")
     st.caption("- Stay setelah tarawih, untuk belanja menu makan sahur keesokan harinya")
     st.caption("- Bisa bekerja sama dengan piket ikhwan untuk bagi tugas menjemput/beli makanan sahur (RisA)")
 
