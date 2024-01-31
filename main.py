@@ -53,7 +53,8 @@ with t1:
                 else:
                     st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di atas untuk masuk sebagai Jamaah.")
                     ss.admin = False
-            c.write("(Jamaah tidak perlu mengisi password)")
+            empty_space(1)
+            c.caption("(Jamaah tidak perlu mengisi password)")
 with t2:
     jobdesk()
 with t3:
