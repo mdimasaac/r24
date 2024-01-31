@@ -91,7 +91,7 @@ def cards(df,n):
     image = ""
     if len(d) != 0 and (d["date"].tolist()[0].date() == datetime.today().date()):
         image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
-        text = "Ramadhan ("+str(d["date"].tolist()[0].date().strftime("%a-%d-%m"))+")"
+        text = "Ramadhan ("+str(d["date"].tolist()[0].date().strftime("%B-%d"))+")"
     else:
         image = ""
         text = "Ramadhan"
@@ -175,7 +175,6 @@ def sumbangan_makanan(admin):
             ss.divider = True
 
     empty_space(2)
-    st.divider()
     if st.toggle("Fetch actual data",key="sumbangan_makanan_1"):
         df = fetch_from_gspread("sumbangan_makanan")
         ss.divider = True
