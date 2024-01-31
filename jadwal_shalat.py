@@ -37,12 +37,12 @@ def fetch_from_gspread(sheet_name):
     ws = connect_to_gspread(sheet_name)
     sheet = ws.get_all_records()
     df = pd.DataFrame(sheet)
-    df["tanggal"] = pd.to_datetime(df["tanggal"],dayfirst=True)
+    df["tanggal"] = pd.to_datetime(df["tanggal"])
     return df
 
 def jadwal_shalat():
     d_jam = fetch_from_gspread("jadwal_shalat")
-    # d_jam = d_jam[d_jam["tanggal"][0].date() == datetime.today().date()]
+    d_jam = d_jam[d_jam["tanggal"].date() == datetime.today().date()]
     st.write(d_jam)
     # if len(d_jam) != 0:
     #     subuh = d_jam["subuh"]
