@@ -31,22 +31,26 @@ options = ["Login Page","Jobdesk Panitia","Sumbangan Kurma",
 
 t1,t2,t3,t4,t5,t6,t7,t8,t9 = st.tabs(options)
 with t1:
+    empty_space(3)
     cols = st.columns([1.2,.1,1])
     with cols[0]:
         jadwal_shalat()
     with cols[2]:
+        c = st.container(border = True)
+        title = '<div style="text-align: center; font-size: 24px; font-style: italic;">Login</div>'
+        st.markdown(title,unsafe_allow_html=True)
         password = ""
-        user = st.selectbox("Select User",["Jamaah","Admin"])
+        user = c.selectbox("Select User",["Jamaah","Admin"])
         if user == "Jamaah":
             ss.admin = False
         elif user == "Admin":
-            password_admin = st.text_input("Masukkan password", type="password", key = "Admin")
-            if st.button("Submit password", key = "button_admin"):
+            password_admin = c.text_input("Masukkan password", type="password", key = "Admin")
+            if c.button("Submit password", key = "button_admin"):
                 if password_admin == "satesomay":
-                    st.success("Berhasil login sebagai admin. Silakan pilih menu di sebelah kiri untuk navigasi ke halaman lainnya.")
+                    st.success("Berhasil login sebagai admin. Silakan pilih menu di atas untuk navigasi ke halaman lainnya.")
                     ss.admin = True
                 else:
-                    st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di sebelah kiri untuk login sebagai Jamaah.")
+                    st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di atas untuk masuk sebagai Jamaah.")
                     ss.admin = False
 with t2:
     jobdesk()
