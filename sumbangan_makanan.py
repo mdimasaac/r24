@@ -142,17 +142,21 @@ def sumbangan_makanan(admin):
             nama = st.text_input("Nama")
 
         with o2:
-            kontak = st.text_input("Kontak (WA)")
-        
+            kontak = st.text_input("Kontak (WA)") 
         o1,o0,o2 = st.columns([1,.2,1])
         with o1:
             menu = st.text_input("Menu")
-            alamat = st.text_input("Alamat")
-            tanggal = st.selectbox("Mau masak untuk hari apa / tanggal berapa?",list_tanggal)
         with o2:
             porsi = st.slider("Porsi",1,100)
+        o1,o0,o2 = st.columns([1,.2,1])
+        with o1:
+            alamat = st.text_input("Alamat")
+        with o2:
             dijemput = st.selectbox("Dijemput di rumah?",["iya","tidak"])
-            empty_space(2)
+        with o1:
+            tanggal = st.selectbox("Mau masak untuk hari apa / tanggal berapa?",list_tanggal)
+        with o2:
+            empty_space(1)
             submit = st.button("Submit",key="sumbangan_makanan") 
             
         if submit:
