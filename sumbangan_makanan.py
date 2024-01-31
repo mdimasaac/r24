@@ -86,10 +86,12 @@ def cards(df,n):
     d = df[df["tanggal"] == n][["date","nama","menu","porsi","dijemput"]]
     d["date"] = pd.to_datetime(d["date"])
     image = ""
-    if d["date"].values().date() == datetime.today().date():
-        image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
-    else:
-        image = ""
+    st.write(d["date"].values)
+    st.write(type(d["date"].values))
+    # if d["date"].values().date() == datetime.today().date():
+    #     image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
+    # else:
+    #     image = ""
     a,b = st.columns([1,2])
     with a:
         width = "160px"
