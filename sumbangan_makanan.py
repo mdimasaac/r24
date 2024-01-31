@@ -4,6 +4,8 @@ import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from streamlit_card import card
+from datetime import datetime
+
 
 
 def empty_space(n):
@@ -83,20 +85,25 @@ def container(df,n):
 def cards(df,n):
     d = df[df["tanggal"] == n][["date","nama","menu","porsi","dijemput"]]
     d["date"] = pd.to_datetime(d["date"])
+    image = ""
+    if d["date"].date() == datetime.tody().date():
+        image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
+    else:
+        image = ""
     a,b = st.columns([1,2])
     with a:
-        width = "180px"
+        width = "160px"
         height = "125px"
         card(
         title=str(n),
         text="Ramadhan",
-        image="",
+        image=image,
         styles={"card": {"width":width,"height": height}}
         )
     with b:
         empty_space(5)
         c = st.container(border = True)
-        c.table(d[["date","nama","menu","porsi","dijemput"]])
+        c.table(d[["nama","menu","porsi","dijemput"]])
 
 def sumbangan_makanan(admin):
     empty_space(2)
