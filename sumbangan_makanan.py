@@ -146,12 +146,10 @@ def sumbangan_makanan(admin):
         
         o1,o0,o2 = st.columns([1,.2,1])
         with o1:
-            nama = st.text_input("Nama")
             menu = st.text_input("Menu")
             alamat = st.text_input("Alamat")
             tanggal = st.selectbox("Mau masak untuk hari apa / tanggal berapa?",list_tanggal)
         with o2:
-            kontak = st.text_input("Kontak (WA)")
             porsi = st.slider("Porsi",1,100)
             dijemput = st.selectbox("Dijemput di rumah?",["iya","tidak"])
             empty_space(2)
