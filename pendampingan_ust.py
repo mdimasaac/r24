@@ -111,11 +111,11 @@ def pendampingan_ust(admin):
     
     o1,o0,o2,o0,o3 = st.columns([3,1,3,1,3])
     with o1:
-        nama = st.text_input("Nama")
+        nama = st.text_input("Nama",key = "nama_pendampingan_ust")
     with o2:
-        kontak = st.text_input("Kontak (WA)")
+        kontak = st.text_input("Kontak (WA)",key = "kontak_pendampingan_ust")
     with o3:
-        tanggal = st.selectbox("Available tanggal berapa?",list_tanggal)
+        tanggal = st.selectbox("Available tanggal berapa?",list_tanggal,key="tanggal_pendampingan_ust")
         empty_space(7)
         submit = st.button("Submit",key="pendampingan_ust")
         
