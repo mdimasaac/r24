@@ -121,7 +121,7 @@ def sumbangan_makanan(admin):
         st.write("- bisa lihat kalender dan isinya")
 
     st.divider()
-    empty_space(5)
+    empty_space(3)
     if "divider" not in ss:
         ss.divider = False
     list_tanggal = []
@@ -135,9 +135,9 @@ def sumbangan_makanan(admin):
     if admin:
         untertitle = '<div style="text-align: center; font-size: 30px; font-style: italic;">--- Eintragen nama dan detail info ---</div>'
         st.markdown(untertitle,unsafe_allow_html=True)
-        empty_space(5)
+        empty_space(3)
         
-        o1,o2 = st.columns([1,1])
+        o1,o0,o2 = st.columns([1,.2,1])
         with o1:
             nama = st.text_input("Nama")
             menu = st.text_input("Menu")
@@ -147,6 +147,7 @@ def sumbangan_makanan(admin):
             kontak = st.text_input("Kontak (WA)")
             porsi = st.slider("Porsi",1,100)
             dijemput = st.selectbox("Dijemput di rumah?",["iya","tidak"])
+            empty_space(2)
             submit = st.button("Submit",key="sumbangan_makanan") 
             
         if submit:
