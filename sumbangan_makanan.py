@@ -91,10 +91,10 @@ def cards(df,n):
     image = ""
     if len(d) != 0 and (d["date"].tolist()[0].date() == datetime.today().date()):
         image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
-        text = "Ramadhan ("+str(d["date"].tolist()[0].date().strftime("%B-%d"))+")"
+        text = "Ramadhan 1445H ("+str(d["date"].tolist()[0].date().strftime("%B-%d"))+")"
     else:
         image = ""
-        text = "Ramadhan"
+        text = "Ramadhan 1445H"
     a,b = st.columns([1,2])
     with a:
         width = "160px"
