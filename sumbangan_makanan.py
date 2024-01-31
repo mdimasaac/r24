@@ -86,8 +86,6 @@ def cards(df,n):
     d = df[df["tanggal"] == n][["date","nama","menu","porsi","dijemput"]]
     d["date"] = pd.to_datetime(d["date"])
     image = ""
-    st.write(d["date"].tolist()[0])
-    st.write(type(d["date"].tolist()[0]))
     if d["date"].tolist()[0].date() == datetime.today().date():
         image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
     else:
@@ -182,11 +180,13 @@ def sumbangan_makanan(admin):
     # hari()
 
     for n in range(31):
-        try:
-            # container(df,n)
-            cards(df,n)
-        except:
-            pass
+        df = fetch_from_gspread("sumbangan_makanan")
+        cards(df,n)
+        # try:
+        #     # container(df,n)
+        #     cards(df,n)
+        # except:
+        #     pass
 
     if admin:
         if st.toggle("Show full data",key="sumbangan_makanan_2"):
