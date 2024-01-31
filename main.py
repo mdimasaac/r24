@@ -31,14 +31,10 @@ options = ["Login Page","Jobdesk Panitia","Sumbangan Kurma",
 
 t1,t2,t3,t4,t5,t6,t7,t8,t9 = st.tabs(options)
 with t1:
-    cols = st.columns([2,1])
+    cols = st.columns([1,.2,1])
     with cols[0]:
         jadwal_shalat()
-
-
-
-
-    with cols[1]:
+    with cols[2]:
         password = ""
         user = st.selectbox("Select User",["Jamaah","Admin"])
         if user == "Jamaah":
