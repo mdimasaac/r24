@@ -45,14 +45,8 @@ def jadwal_shalat():
     d_jam = d_jam[d_jam["tanggal"].dt.date == datetime.today().date()]
     if len(d_jam) != 0:
         for i,j in zip(range(1,7),d_jam.columns[1:7]):
-            width = "160px"
-            height = "125px"
-            big_text = str(d_jam.iloc[:,i][0])
-            text = j.title()
+            value = str(d_jam.iloc[:,i][0])
+            label = j.title()
             # st.write(big_text,text)
-            card(
-            title = big_text,
-            text=text,
-            image="",
-            styles={"card": {"width":width,"height": height}}
-            )
+            c = st.container(border = True)
+            c.metric(label=label, value=value)
