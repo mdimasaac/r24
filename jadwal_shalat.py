@@ -46,5 +46,5 @@ def jadwal_shalat():
     # if len(d_jam) != 0:
     #     subuh = d_jam["subuh"]
     #     st.write(subuh)
-    st.write(d_jam["tanggal"][0].date())
+    st.write(d_jam["tanggal"][0].date() == datetime.today().date())
     st.write(type(d_jam["tanggal"][0].date()))
