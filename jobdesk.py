@@ -51,7 +51,7 @@ def manajemen_konsumsi():
     empty_space(3)
     undertitle = '<div style="text-align: left; font-size: 24px;">🗹 Tim A (2 orang atau lebih):</div>'
     st.markdown(undertitle,unsafe_allow_html=True)
-    st.write("- Komunikasi dengan Ibu-Ibu, Bapak-Bapak, dan jamaah lainnya yang bersedia/berminat untuk mendonasikan menu makan untuk buka puasa")
+    st.write("####- Komunikasi dengan Ibu-Ibu, Bapak-Bapak, dan jamaah lainnya yang bersedia/berminat untuk mendonasikan menu makan untuk buka puasa")
     st.write("- Mencatat info detail donatur makanan ke app/google sheet")
     st.write("- Update status dengan ketua ramadhan")
     empty_space(3)
@@ -285,7 +285,7 @@ def jobdesk():
             tim_list = ["Tim A Ikhwan","Tim B Ikhwan","Tim A Akhwat","Tim B Akhwat"]
         tim = st.selectbox("Pilih tim:", tim_list)
         empty_space(1)
-        if st.button("Submit", key="panitia",use_container_width=True):
+        if st.button("Masukkan saya ke tim!", key="panitia",use_container_width=True):
             new_row = [panitia,nama,kontak,tim]
             insert_to_gspread("panitia",new_row)
             df = fetch_from_gspread("panitia")
