@@ -5,7 +5,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import locale
-locale.setlocale(locale.LC_TIME, 'id_ID')
+locale.setlocale(locale.LC_TIME, 'id')
 
 
 
