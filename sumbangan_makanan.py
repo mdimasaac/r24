@@ -124,7 +124,7 @@ def sumbangan_makanan(admin):
         st.write("- bisa lihat kalender dan isinya")
 
     st.divider()
-    empty_space(3)
+    empty_space(2)
     if "divider" not in ss:
         ss.divider = False
     list_tanggal = []
@@ -136,7 +136,7 @@ def sumbangan_makanan(admin):
             t2 = str(i-20)+" April"
         list_tanggal.append(t1+t2)
     if admin:
-        untertitle = '<div style="text-align: center; font-size: 30px; font-style: italic;">--- Eintragen nama dan detail info ---</div>'
+        untertitle = '<div style="text-align: center; font-size: 30px; font-style: italic;">Eintragen nama dan detail info</div>'
         st.markdown(untertitle,unsafe_allow_html=True)
         empty_space(3)
         
@@ -179,13 +179,10 @@ def sumbangan_makanan(admin):
         ss.divider = True
     else:
         ss.divider = False
-    empty_space(5)
-    # hari()
+    empty_space(2)
 
     for n in range(31):
-        # cards(df,n)
         try:
-            # container(df,n)
             cards(df,n)
         except:
             pass
