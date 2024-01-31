@@ -137,19 +137,17 @@ def sumbangan_makanan(admin):
         st.markdown(untertitle,unsafe_allow_html=True)
         empty_space(5)
         
-        o1,o0,o2,o0,o3 = st.columns([3,1,3,1,3])
+        o1,o2 = st.columns([1,1])
         with o1:
             nama = st.text_input("Nama")
             menu = st.text_input("Menu")
-            porsi = st.slider("Porsi",1,100)
+            alamat = st.text_input("Alamat")
+            tanggal = st.selectbox("Mau masak untuk hari apa / tanggal berapa?",list_tanggal)
         with o2:
             kontak = st.text_input("Kontak (WA)")
-            alamat = st.text_input("Alamat")
-            dijemput = st.radio("Dijemput di rumah?",["iya","tidak"])
-        with o3:
-            tanggal = st.selectbox("Mau masak untuk hari apa / tanggal berapa?",list_tanggal)
-            empty_space(7)
-            submit = st.button("Submit",key="sumbangan_makanan")
+            porsi = st.slider("Porsi",1,100)
+            dijemput = st.selectbox("Dijemput di rumah?",["iya","tidak"])
+            submit = st.button("Submit",key="sumbangan_makanan") 
             
         if submit:
             dateval = tanggal.split("/")[1].strip().replace("Maret","03").replace("April","04").replace(" ","/")+"/2024"
@@ -165,7 +163,7 @@ def sumbangan_makanan(admin):
     else:
         ss.divider = False
     empty_space(5)
-    hari()
+    # hari()
 
     for n in range(31):
         try:
@@ -175,7 +173,7 @@ def sumbangan_makanan(admin):
             pass
 
     if admin:
-        if st.toggle("Show full data"):
+        if st.toggle("Show full data",key="sumbangan_makanan_2"):
             df_show = fetch_from_gspread("sumbangan_makanan").iloc[1:]
             st.table(df_show)
 

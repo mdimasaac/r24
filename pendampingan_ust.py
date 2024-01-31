@@ -196,6 +196,6 @@ def pendampingan_ust(admin):
     
     empty_space(20)
     if admin:
-        if st.toggle("Show full data"):
+        if st.toggle("Show full data", key="pendampingan_ust_2"):
             df_show = fetch_from_gspread("pendampingan_ust").iloc[1:]
             st.table(df_show)
