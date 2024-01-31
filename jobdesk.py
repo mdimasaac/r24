@@ -371,6 +371,11 @@ def jobdesk():
         for i,j,k in zip(konsumsi_list["nama"],konsumsi_list["kontak"],konsumsi_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
     empty_space(3)
+    st.write('''#### *Acara & Publikasi:*''')
+    if len(publikasi_list) != 0:
+        for i,j,k in zip(publikasi_list["nama"],publikasi_list["kontak"],publikasi_list["tim"]):
+            st.write(k+" | "+i+" | "+str(j))
+    empty_space(3)
     st.write('''#### *Belanja Logistik:*''')
     if len(logistik_list) != 0:
         for i,j,k in zip(logistik_list["nama"],logistik_list["kontak"],logistik_list["tim"]):
@@ -379,11 +384,6 @@ def jobdesk():
     st.write('''#### *Kerja Bakti:*''')
     if len(kerja_bakti_list) != 0:
         for i,j,k in zip(kerja_bakti_list["nama"],kerja_bakti_list["kontak"],kerja_bakti_list["tim"]):
-            st.write(k+" | "+i+" | "+str(j))
-    empty_space(3)
-    st.write('''#### *Acara & Publikasi:*''')
-    if len(publikasi_list) != 0:
-        for i,j,k in zip(publikasi_list["nama"],publikasi_list["kontak"],publikasi_list["tim"]):
             st.write(k+" | "+i+" | "+str(j))
     empty_space(3)
     
