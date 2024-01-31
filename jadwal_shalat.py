@@ -43,7 +43,7 @@ def jadwal_shalat():
     d_jam = fetch_from_gspread("jadwal_shalat")
     d_jam = d_jam[d_jam["tanggal"].dt.date == datetime.today().date()]
     if len(d_jam) != 0:
-        text = (str(d_jam["tanggal"].dt.strftime('%A, %B %d')[0]))
+        text = (str(d_jam["tanggal"].dt.strftime('%A, %m %d')[0]))
         title = '<div style="text-align: center; font-size: 24px; font-style: italic;">'+text+'</div>'
         st.markdown(title,unsafe_allow_html=True)
         empty_space(2)
