@@ -183,12 +183,12 @@ def sumbangan_makanan(admin):
     # hari()
 
     for n in range(31):
-        cards(df,n)
-        # try:
-        #     # container(df,n)
-        #     cards(df,n)
-        # except:
-        #     pass
+        # cards(df,n)
+        try:
+            # container(df,n)
+            cards(df,n)
+        except:
+            pass
 
     if admin:
         if st.toggle("Show full data",key="sumbangan_makanan_2"):
