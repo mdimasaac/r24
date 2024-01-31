@@ -213,9 +213,7 @@ def jobdesk():
     with c1:
         card(
         title="Manajemen Konsumsi",
-        text='''a
-        b
-        c''',
+        text="",
         image="https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif",
         styles={"card": {"width":width,"height": height}}
         )

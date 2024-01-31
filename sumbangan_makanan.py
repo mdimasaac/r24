@@ -99,7 +99,7 @@ def cards(df,n):
         height = "125px"
         card(
         title=str(n),
-        text="Ramadhan",
+        text="Ramadhan ("+str(d["date"].tolist()[0].date().strftime("%A %d %B"))+")",
         image=image,
         styles={"card": {"width":width,"height": height}}
         )
