@@ -31,14 +31,15 @@ options = ["Login Page","Jobdesk Panitia","Sumbangan Kurma",
 
 t1,t2,t3,t4,t5,t6,t7,t8,t9 = st.tabs(options)
 with t1:
-    empty_space(3)
+    empty_space(2)
     cols = st.columns([1.2,.1,1])
     with cols[0]:
         jadwal_shalat()
     with cols[2]:
-        c = st.container(border = True)
         title = '<div style="text-align: center; font-size: 24px; font-style: italic;">Login</div>'
         st.markdown(title,unsafe_allow_html=True)
+        empty_space(2)
+        c = st.container(border = True)
         password = ""
         user = c.selectbox("Select User",["Jamaah","Admin"])
         if user == "Jamaah":

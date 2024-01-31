@@ -42,6 +42,7 @@ def fetch_from_gspread(sheet_name):
 
 def jadwal_shalat():
     d_jam = fetch_from_gspread("jadwal_shalat")
+    empty_space(2)
     d_jam = d_jam[d_jam["tanggal"].dt.date == datetime.today().date()]
     if len(d_jam) != 0:
         text = (str(d_jam["tanggal"].dt.date[0]))
