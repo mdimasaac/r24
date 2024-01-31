@@ -88,10 +88,10 @@ def cards(df,n):
     image = ""
     st.write(d["date"].tolist()[0])
     st.write(type(d["date"].tolist()[0]))
-    # if d["date"].values().date() == datetime.today().date():
-    #     image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
-    # else:
-    #     image = ""
+    if d["date"].tolist()[0].date() == datetime.today().date():
+        image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
+    else:
+        image = ""
     a,b = st.columns([1,2])
     with a:
         width = "160px"
