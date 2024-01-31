@@ -86,7 +86,7 @@ def cards(df,n):
     d = df[df["tanggal"] == n][["date","nama","menu","porsi","dijemput"]]
     d["date"] = pd.to_datetime(d["date"])
     image = ""
-    if d["date"].date() == datetime.tody().date():
+    if d["date"].date() == datetime.today().date():
         image = "https://media4.giphy.com/media/0iIDiDhE5dAxXkbRXx/giphy.gif"
     else:
         image = ""
@@ -169,7 +169,8 @@ def sumbangan_makanan(admin):
             df = fetch_from_gspread("sumbangan_makanan")
             ss.divider = True
 
-    empty_space(2)    
+    empty_space(2)
+    st.divider()
     if st.toggle("Fetch actual data",key="sumbangan_makanan_1"):
         df = fetch_from_gspread("sumbangan_makanan")
         ss.divider = True
