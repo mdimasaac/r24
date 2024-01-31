@@ -37,7 +37,7 @@ def fetch_from_gspread(sheet_name):
     ws = connect_to_gspread(sheet_name)
     sheet = ws.get_all_records()
     df = pd.DataFrame(sheet)
-    df["tanggal"] = pd.to_datetime(df["tanggal"])
+    df["tanggal"] = pd.to_datetime(df["tanggal"],dayfirst=True)
     return df
 
 def jadwal_shalat():
