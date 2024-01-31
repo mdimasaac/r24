@@ -4,7 +4,6 @@ import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-
 def empty_space(n):
     i = 0
     while i < n:

@@ -6,6 +6,7 @@ import pandas as pd
 from sumbangan_makanan import sumbangan_makanan
 from pendampingan_ust import pendampingan_ust
 from jobdesk import jobdesk
+from jadwal_shalat import jadwal_shalat
 
 def write_title():
     title = '<div style="text-align: center; font-size: 40px;">Project: Ramadhan 2024 Al-Falah IWKZ</div>'
@@ -28,48 +29,42 @@ options = ["Login Page","Jobdesk Panitia","Sumbangan Kurma",
            "Sumbangan Makanan","Piket Ikhwan","Piket Akhwat",
            "Jemput Makanan","Imam Tarawih","Pendampingan Ustadz"]
 
-# choice = st.sidebar.selectbox("Menu",options, key = '1')
 t1,t2,t3,t4,t5,t6,t7,t8,t9 = st.tabs(options)
-# if (choice == "Login Page"):
 with t1:
-    password = ""
-    user = st.selectbox("Select User",["Jamaah","Admin"])
-    if user == "Jamaah":
-        ss.admin = False
-    elif user == "Admin":
-        password_admin = st.text_input("Masukkan password", type="password", key = "Admin")
-        if st.button("Submit password", key = "button_admin"):
-            if password_admin == "satesomay":
-                st.success("Berhasil login sebagai admin. Silakan pilih menu di sebelah kiri untuk navigasi ke halaman lainnya.")
-                ss.admin = True
-            else:
-                st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di sebelah kiri untuk login sebagai Jamaah.")
-                ss.admin = False
+    cols = st.columns([3,1])
+    with cols[0]:
+        jadwal_shalat()
 
 
+
+
+    with cols[1]:
+        password = ""
+        user = st.selectbox("Select User",["Jamaah","Admin"])
+        if user == "Jamaah":
+            ss.admin = False
+        elif user == "Admin":
+            password_admin = st.text_input("Masukkan password", type="password", key = "Admin")
+            if st.button("Submit password", key = "button_admin"):
+                if password_admin == "satesomay":
+                    st.success("Berhasil login sebagai admin. Silakan pilih menu di sebelah kiri untuk navigasi ke halaman lainnya.")
+                    ss.admin = True
+                else:
+                    st.error("Password salah. Hubungi admin untuk login sebagai admin, atau pilih menu di sebelah kiri untuk login sebagai Jamaah.")
+                    ss.admin = False
 with t2:
-# elif (choice == "Jobdesk Panitia"):
     jobdesk()
-
 with t3:
     st.write("Page Sumbangan Kurma - coming soon")
-
 with t4:
-# elif (choice == "Sumbangan Makanan"):
     sumbangan_makanan(ss.admin)
-
 with t5:
     st.write("Page Piket Ikhwan - coming soon")
-
 with t6:
     st.write("Page Piket Akhwat - coming soon")
-
 with t7:
     st.write("Page Penjemputan Makanan - coming soon")
-
 with t8:
     st.write("Page Imam Tarawih - coming soon")
-
 with t9:
-#elif (choice == "Pendampingan Ustadz"):
     pendampingan_ust(ss.admin)
