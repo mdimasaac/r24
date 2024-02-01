@@ -41,7 +41,7 @@ def fetch_from_gspread(sheet_name):
 
 def jadwal_shalat():
     d_jam = fetch_from_gspread("jadwal_shalat")
-    d_jam = d_jam[d_jam["tanggal"].dt.date == datetime.today().date()].reset_index()
+    d_jam = d_jam[d_jam["tanggal"].dt.date == datetime.today().date()].reset_index(drop = True)
     if len(d_jam) != 0:
         text = (str(d_jam["tanggal"].dt.strftime('%A, %b %d')[0]))
         title = '<div style="text-align: center; font-size: 24px; font-style: italic;">'+text+'</div>'
